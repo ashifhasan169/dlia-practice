@@ -90,6 +90,20 @@ def practice_1():
     plt.imshow(cv2.cvtColor(img_hsv, cv2.COLOR_HSV2RGB))
     plt.title('HSV')
     plt.axis('off')
+
+    # Add LAB and XYZ visualization
+    plt.subplot(2, 4, 7)
+    plt.imshow(cv2.cvtColor(img_lab, cv2.COLOR_LAB2RGB))
+    plt.title('LAB')
+    plt.axis('off')
+
+    plt.subplot(2, 4, 8)
+    plt.imshow(cv2.cvtColor(img_xyz, cv2.COLOR_XYZ2RGB))
+    plt.title('XYZ')
+    plt.axis('off')
+
+    plt.tight_layout()
+    plt.show()
     
     print("\n6. Splitting and Merging Color Channels")
     
@@ -104,12 +118,23 @@ def practice_1():
     img_merged = cv2.merge([b_channel, g_channel, r_channel])
     print("✓ Color channels merged successfully")
     
-    plt.subplot(2, 4, 7)
+    plt.figure(figsize=(12, 4))
+    plt.subplot(1, 4, 1)
+    plt.imshow(cv2.cvtColor(b_colored, cv2.COLOR_BGR2RGB))
+    plt.title('Blue Channel')
+    plt.axis('off')
+    
+    plt.subplot(1, 4, 2)
+    plt.imshow(cv2.cvtColor(g_colored, cv2.COLOR_BGR2RGB))
+    plt.title('Green Channel')
+    plt.axis('off')
+    
+    plt.subplot(1, 4, 3)
     plt.imshow(cv2.cvtColor(r_colored, cv2.COLOR_BGR2RGB))
     plt.title('Red Channel')
     plt.axis('off')
     
-    plt.subplot(2, 4, 8)
+    plt.subplot(1, 4, 4)
     plt.imshow(cv2.cvtColor(img_merged, cv2.COLOR_BGR2RGB))
     plt.title('Merged Image')
     plt.axis('off')
